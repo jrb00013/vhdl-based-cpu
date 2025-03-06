@@ -14,6 +14,7 @@ entity register_file is
            );
 end register_file;
 
+
 architecture Behavioral of register_file is
     type reg_array is array(0 to 31) of STD_LOGIC_VECTOR(15 downto 0);
     signal regs : reg_array;
