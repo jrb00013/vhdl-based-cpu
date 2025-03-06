@@ -11,6 +11,7 @@ entity alu is
            );
 end alu;
 
+
 architecture Behavioral of alu is
 begin
     process(a, b)
