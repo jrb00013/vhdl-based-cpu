@@ -10,7 +10,7 @@ architecture Behavior of testbench is
     signal data_in : STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
     signal data_out : STD_LOGIC_VECTOR(15 downto 0);
 
-    -- Component Declaration for the Unit Under Test (UUT)
+    -- Instantiate the unit under test (UUT)
     component cpu_top is
         Port ( clk : in STD_LOGIC;
                reset : in STD_LOGIC;
@@ -21,10 +21,10 @@ architecture Behavior of testbench is
 
 begin
 
-    -- Instantiate the Unit Under Test (UUT)
+    -- Instantiate the UUT
     uut: cpu_top Port map ( clk => clk, reset => reset, data_in => data_in, data_out => data_out );
 
-    -- Clock Generation
+    -- Clock generation
     clk_process: process
     begin
         clk <= '0';
@@ -33,19 +33,23 @@ begin
         wait for 10 ns;
     end process;
 
-    -- Stimulus Process
+    -- Stimulus process for applying inputs
     stim_proc: process
     begin
-        -- Test Reset
+        -- Test reset
         reset <= '1';
         wait for 20 ns;
         reset <= '0';
-        
-        -- Apply inputs
-        data_in <= "0000000000000101"; -- Example input value
+
+        -- Test ADD instruction
+        data_in <= "0000000000000001";  -- Example input value
         wait for 40 ns;
         
-        -- Add more test cases here
+        -- Test SUB instruction
+        data_in <= "0000000000000010";  -- Example input value
+        wait for 40 ns;
+        
+        -- Add more tests here
         wait;
     end process;
 
