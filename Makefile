@@ -1,16 +1,19 @@
-VHDL_SOURCES = cpu_top.vhd alu.vhd control_unit.vhd register_file.vhd datapath.vhd memory.vhd testbench.vhd
-LIBRARY = work
-ENTITY = testbench
+# Define the toolchain
+VHDL_COMPILER = ghdl
+GHDL_FLAGS = --std=08
 
-all: compile simulate
+# Define the sources
+SOURCES = alu.vhd control_unit.vhd cpu_top.vhd datapath.vhd memory.vhd register_file.vhd testbench.vhd
+
+# Compile the VHDL files
+all: compile
 
 compile:
-    ghdl -a --workdir=$(LIBRARY) $(VHDL_SOURCES)
+	$(VHDL_COMPILER) $(GHDL_FLAGS) -a $(SOURCES)
 
-simulate:
-    ghdl -e --workdir=$(LIBRARY) $(ENTITY)
-    ghdl -r --workdir=$(LIBRARY) $(ENTITY)
+run:
+	$(VHDL_COMPILER) $(GHDL_FLAGS) -e testbench
+	./testbench
 
 clean:
-    ghdl -r --workdir=$(LIBRARY) $(ENTITY)
-    rm -rf $(LIBRARY)
+	rm -f *.o *.cf *.vcd
