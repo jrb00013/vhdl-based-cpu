@@ -66,4 +66,36 @@ begin
 
     -- Instantiate components
     ALU_inst : ALU
-        Port map ( A => data
+        Port map ( A => data_in,
+                   B => data_in, -- Example data path
+                   opcode => alu_op_signal,
+                   result => alu_result,
+                   zero_flag => alu_zero,
+                   carry_out => alu_carry,
+                   overflow_flag => alu_overflow );
+
+    control_unit_inst : control_unit
+        Port map ( opcode => data_in(3 downto 0),
+                   reg_write => reg_write_enable,
+                   alu_op => alu_op_signal,
+                   mem_read => mem_read_enable,
+                   mem_write => mem_write_enable,
+                   branch => branch_signal,
+                   mem_to_reg => mem_to_reg_signal,
+                   alu_src => alu_src_signal );
+
+    datapath_inst : datapath
+        Port map ( clk => clk,
+                   reset => reset,
+                   data_in => data_in,
+                   alu_result => alu_result,
+                   mem_data => mem_data,
+                   reg_write_data => reg_write_data,
+                   data_out => data_out,
+                   reg_write_enable => reg_write_enable,
+                   mem_write_enable => mem_write_enable,
+                   mem_read_enable => mem_read_enable,
+                   alu_op => alu_op_signal,
+                   write_back => data_out );
+
+end Behavioral;
