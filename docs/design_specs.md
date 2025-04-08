@@ -1,8 +1,8 @@
-Design Specifications for VHDL-Based CPU
-1. Introduction
+## Design Specifications for VHDL-Based CPU
+#1. Introduction
 This project implements a basic CPU architecture using VHDL. The CPU is designed to execute a set of simple instructions such as arithmetic operations, memory reads/writes, and branching. The design is modular, with components for the ALU (Arithmetic Logic Unit), Control Unit, Datapath, Register File, Memory, and a Testbench for verifying functionality.
 
-2. CPU Architecture Overview
+#2. CPU Architecture Overview
 The architecture follows a simplified RISC (Reduced Instruction Set Computing) style with the following major components:
 
 Control Unit: Decodes instructions and generates control signals for the other components.
@@ -17,7 +17,7 @@ Memory: Holds data that can be read or written by the CPU.
 
 Testbench: Simulates the operation of the CPU and validates the design.
 
-3. Modules and Their Functionality
+#3. Modules and Their Functionality
 3.1 Control Unit
 The Control Unit generates the necessary control signals to orchestrate the CPU's operations. It decodes the opcode from the instruction and outputs signals to the Datapath, ALU, and other components.
 
@@ -114,7 +114,7 @@ Instruction inputs
 
 Expected output checks
 
-4. Instruction Set Architecture (ISA)
+#4. Instruction Set Architecture (ISA)
 The CPU supports a simple set of instructions for demonstration purposes:
 
 ADD: Adds two registers.
@@ -141,7 +141,7 @@ Bits 7-4: Source register 1 (4 bits)
 
 Bits 3-0: Source register 2 or immediate value (4 bits)
 
-5. Signal Descriptions
+#5. Signal Descriptions
 clk: Clock signal for synchronization of all components.
 
 reset: Active-high reset signal, used to initialize registers and other components to default values.
@@ -164,12 +164,12 @@ branch: Branch control signal.
 
 mem_to_reg: Selects whether to write the data from memory or the ALU to the register.
 
-6. Clocking and Reset
+#6. Clocking and Reset
 Clock: All components of the CPU are synchronized using a rising-edge clock. The clock signal is connected to the ALU, control unit, register file, and datapath to ensure coordinated operation.
 
 Reset: A global reset signal is used to clear registers and set the CPU to its initial state at the beginning of simulation or operation.
 
-7. Simulation and Testing
+#7. Simulation and Testing
 The Testbench provides an automated means of verifying the correct behavior of the CPU. It applies test vectors to the CPU’s inputs and compares the outputs against expected results. The following tests are performed:
 
 Basic Arithmetic Operations: Verifies that the ALU performs addition, subtraction, AND, and OR correctly.
