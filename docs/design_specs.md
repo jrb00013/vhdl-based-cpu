@@ -1,4 +1,5 @@
-## Design Specifications for VHDL-Based CPU
+## Design Specifications
+
 #1. Introduction
 This project implements a basic CPU architecture using VHDL. The CPU is designed to execute a set of simple instructions such as arithmetic operations, memory reads/writes, and branching. The design is modular, with components for the ALU (Arithmetic Logic Unit), Control Unit, Datapath, Register File, Memory, and a Testbench for verifying functionality.
 
