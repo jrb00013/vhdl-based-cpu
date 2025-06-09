@@ -1,4 +1,4 @@
-# VHDL-based CPU Design 🖥️
+# VHDL RISC-Style CPU with Custom ISA 🖥️
 
 This project implements a basic CPU in VHDL. It consists of essential components like the ALU, control unit, registers, and memory.
 
