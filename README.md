@@ -1,4 +1,4 @@
-# VHDL RISC-Style CPU with Custom ISA 🖥️
+# VHDL RISC-Style CPU with Custom ISA 🖥
 
 My VHDL that I built back in school, which consists of essential components for a simple RISC-Style CPU like the ALU, control unit, registers, and memory, all customized.
 
